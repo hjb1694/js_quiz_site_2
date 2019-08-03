@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <%- include('./partials/head.ejs') %>
+    </head>
+    <body>
+        <!-- Header -->
+        <%- include('./partials/header.ejs') %>
+        <!-- End Header -->
+        <!-- Navigation -->
+        <%- include('./partials/nav.ejs') %>
+        <!-- End Navigation -->
+        <div class="container p10">
+            <div class="subcontainer">
+                <% for(let result of results) { %>
+                <div class="result-tile">
+                    <div class="result-tile__question"><%- result.question %></div>
+                    <ul class="result-tile__answer-set">
+                    <% for(let answer of result.possibleAnswers) { %>
+                        <li><%- answer %></li>
+                    <% } %>
+                    </ul>
+                    <div class="result-tile__user-answer">
+                        <strong>Your Answer:</strong>
+                        <div><%- result.userAnswer %></div>
+                    </div>
+                    <div class="result-tile__correct-answer">
+                        <strong>Correct Answer:</strong>
+                        <div><%- result.correctAnswer %></div>
+                    </div>
+
+                    <p class="result-tile__status"><%= result.correctOrIncorrect %></p>
+
+                </div>
+                <% } %>
+            </div>
+        </div>
+        <script src="/js/main.bundle.js"></script>
+    </body>
+</html>

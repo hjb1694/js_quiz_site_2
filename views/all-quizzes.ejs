@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <%- include('./partials/head.ejs') %>
+    </head>
+    <body>
+        <!-- Header -->
+        <%- include('./partials/header.ejs') %>
+        <!-- End Header -->
+        <!-- Navigation -->
+        <%- include('./partials/nav.ejs') %>
+        <!-- End Navigation -->
+        <div class="container p10">
+            <div class="subcontainer">
+                <div class="allQuizzesListings">
+                    <h1 class="allQuizzesListings__header">All Quizzes</h1>
+                    <table class="allQuizzesListings__table">
+                        <tbody>
+                            <% for (let quiz of quizzes) { %>
+                                <tr>
+                                    <td><%= quiz.name %></td>
+                                    <td><a href="/quizzes/<%= quiz.id %>">Take Quiz <i class="fa fa-arrow-right"></i></a></td>
+                                </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+        <script src="/js/allQuizzes.bundle.js"></script>
+    </body>
+</html>

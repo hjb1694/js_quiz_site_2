@@ -1,0 +1,359 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Barriecito&display=swap');
+
+*,*::before,*::after{
+    margin:0;
+    padding:0;
+    box-sizing:inherit;
+}
+
+html{
+    font-size:62.5%;
+}
+
+body{
+    box-sizing:border-box;
+    font-family: 'Roboto Slab', serif;
+    background:#333;
+}
+
+.header{
+    background:#00bcd4;
+    min-height:6rem;
+    position:fixed;
+    top:0;
+    width:100%;
+    box-shadow:0 0 1rem rgba(0,0,0,.4);
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+
+    &__navtoggle{
+        color:#fff;
+        font-size:2.5rem;
+        padding:1rem;
+        margin:1rem;
+        cursor:pointer;
+        border-radius:90%;
+        transition:.2s all;
+
+        &:hover{
+            background:#00acc1;
+        }
+    }
+}
+
+.nav{
+    background:rgba(0,0,0,.45);
+    width:0;
+    height:0;
+    left:0;
+    top:0;
+    overflow:hidden;
+    position:fixed;
+    z-index:2;
+    transition:.9s width;
+
+    &__body{
+        width:0;
+        overflow:hidden;
+        white-space:nowrap;
+        background:#fff;
+        height:100%;
+        box-shadow:0 1rem 2rem rgba(0,0,0,.7);
+        transition:.8s width;
+        transition-delay:.5s;
+
+    }
+
+    &__closebtn{
+        font-size:2rem;
+        float:right;
+        margin:.5rem .8rem;
+        padding:.8rem 1.2rem;
+        border-radius:90%;
+        transition:.2s all;
+        cursor:pointer;
+
+        &:hover{
+            color:red;
+            background:#fff2f2;
+        }
+    }
+
+
+    &__linklist{
+        margin-top:4rem;
+    }
+
+    &__link{
+        display:block;
+        padding:1rem;
+        font-size:1.6rem;
+        color:#555;
+        font-weight:bold;
+        text-decoration:none;
+        color:inherit;
+        transition:.2s all;
+
+        &:hover{
+            background:#f5f5f5;
+        }
+    }
+
+
+    &.show {
+        display:block;
+        width:100%;
+        height:100%;
+    }
+
+    &.show > &__body{
+        width:25rem;
+    }
+
+}
+
+.container{
+    margin-top:6.5rem;
+}
+
+.heading-text{
+    text-align:center;
+    margin-top:20rem;
+
+    &--primary{
+        font-size:8rem;
+    }
+
+    &--secondary{
+        font-size:4rem;
+    }
+}
+
+.heading-btn{
+    background: transparent;
+    border:2px solid #fff;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-family: inherit;
+    padding: 1rem;
+    display:block;
+    width:20rem;
+    font-weight:bold;
+    text-align:center;
+    margin:3rem auto;
+    text-decoration:none;
+    border-radius:.5rem;
+    cursor:pointer;
+    transition: .2s all;
+
+    &:hover{
+        background:#fff;
+        color:#000;
+    }
+}
+
+
+
+.hero{
+    min-height:40rem;
+    background-image: url(../img/blue-computer.jpg);
+    background-position:center;
+    background-size:cover;
+    box-shadow:0 0 1rem rgba(0,0,0,.4);
+    position:relative;
+
+    &__content{
+        position:absolute;
+        left:50%;
+        top:25%;
+        transform:translate(-50%,-50%);
+        color:#fff;
+    }
+}
+
+.registration-form,
+.login-form{
+    padding:1.5rem;
+    box-shadow:0 0 .5rem rgba(0,0,0,.3);
+    max-width:80rem;
+    border-radius:2px;
+    margin: 5rem auto;
+    background-image:linear-gradient(to bottom right, rgba(220,220,220,.8), rgba(210,210,210,.8)), url(../img/jscode.jpg);
+    background-position:center;
+    background-size:cover;
+
+
+    &__header{
+        margin-bottom:2rem;
+        font-size:3rem;
+        color:#000;
+        font-weight:bold;
+    }
+
+    &__errbox{
+        color:#000;
+    }
+}
+
+
+.form-group{
+    margin:.8rem 0;
+}
+
+.text-input{
+    display:block;
+    width:100%;
+    padding:1rem;
+    font-size:2rem;
+    font-family:inherit;
+    border:0;
+    outline:none;
+    background:rgba(0,0,0,.4);
+    color:#fff;
+    box-shadow:0 0 .5rem rgba(0,0,0,.1);
+
+    &::placeholder{
+        color:#fff;
+    }
+
+    &:not(:placeholder-shown) + .text-input-label{
+        transform:translateY(0);
+        opacity:1;
+        z-index:0;
+    }
+
+}
+
+.text-input-label{
+    display:block;
+    margin-left:1rem;
+    margin-top:2px;
+    font-weight:bold;
+    font-size:1.2rem;
+    opacity:0;
+    transform:translateY(-1.5rem);
+    transition:.3s all;
+    position:relative;
+    z-index:-1;
+    color:#000;
+}
+
+.btn{
+    display:block;
+    padding:1rem;
+    border:0;
+    font-size:1.5rem;
+    font-family:inherit;
+    color:#fff;
+    text-transform:uppercase;
+    font-weight:bold;
+    cursor:pointer;
+    border-radius:2px;
+    box-shadow:0 0 .5rem rgba(0,0,0,.2);
+
+    &--purple{
+        background:linear-gradient(to bottom right, #9a4abd, #b85fd9);
+    }
+
+    &--blue{
+        background: #00695c;
+    }
+}
+
+.errbox{
+    font-size:1.2rem;
+}
+
+.p10{
+    padding:1rem;
+}
+
+
+.subcontainer{
+    max-width:80rem;
+    margin:5rem auto;
+}
+
+.allQuizzesListings{
+
+    &__header{
+        font-size:2.5rem;
+        color:#fff;
+        background: #49c9bf;
+        padding:1rem;
+    }
+
+    &__table {
+        width:100%;
+        border:0;
+    }
+
+    &__table td {
+        background: #49c9bf;
+        font-size:2rem;
+        padding: 1rem;
+        color:#fff;
+    }
+
+    &__table td a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+}
+
+.quiz-item{
+    background:#fff;
+    padding:1rem;
+    border-radius:2px;
+    margin-top:1rem;
+    box-shadow:0 0 .5rem rgba(0,0,0,.3);
+
+    &__question{
+        font-size:1.4rem;
+    }
+
+    &__answer{
+        font-size:1.4rem;
+    }
+
+    &__answer-group{
+        margin-top:1rem;
+    }
+}
+
+.result-tile{
+    background:#fff;
+    padding:1rem;
+    border-radius:.5rem;
+    margin-top:1rem;
+
+    &__question{
+        font-size:1.4rem;
+    }
+
+    &__answer-set{
+        list-style-position:inside;
+        font-size:1.4rem;
+        margin-top:1rem;
+    }
+
+    &__user-answer, &__correct-answer {
+        font-size:1.4rem;
+        margin-top: 1rem;
+    }
+
+    &__status{
+        font-size:2rem;
+        margin-top:1rem;
+    }
+}
+
+
+.register-page-body, 
+.login-page-body{
+    background-image:url(../img/blue-computer.jpg);
+}

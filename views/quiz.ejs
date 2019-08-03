@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <%- include('./partials/head.ejs') %>
+    </head>
+    <body class="main-page-body">
+        <!-- Header -->
+        <%- include('./partials/header.ejs') %>
+        <!-- End Header -->
+        <!-- Navigation -->
+        <%- include('./partials/nav.ejs') %>
+        <!-- End Navigation -->
+        <div class="container p10">
+            <div class="subcontainer">
+                <form id="quizForm" action="/quizzes/result" method="POST">
+                <% for(question of questions){ %>
+
+                    <div class="quiz-item">
+                        <div class="quiz-item__question"><%- question.question %></div>
+                        <div class="quiz-item__answer-group">
+                        <% for(answer of question.answers){ %>
+
+                            <p class="quiz-item__answer"><input type="radio" name="<%= question.questionNo %>" value="<%= answer.answerNo %>"/> <%- answer.answer %></p>
+
+                        <%  } %>
+                        </div>
+                    </div>
+
+                <% } %>
+                <input type="hidden" name="quizNo" value="<%= quizNo %>%>"/>
+                <button type="submit" id="subbut" class="btn btn--purple" style="margin-top:1rem;">Submit</button>
+                </form>
+            </div>
+            
+        </div>
+        <script src="/js/quiz.bundle.js"></script>
+    </body>
+</html>
